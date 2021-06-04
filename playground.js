@@ -186,7 +186,7 @@ const updateStarlink = async (name) => {
     })
 }
 
-// updateStarlink('Jake's Starlink Satellite', 'Vinny's Tesla Starlink');
+// updateStarlink("Jake's Starlink Satellite", "Vinny's Tesla Starlink");
 
 const deleteStarlink = async (name) => {
     Starlink.findOneAndRemove({ name }, (err) => {
@@ -249,7 +249,7 @@ const updateCore = async (_id, name) => {
     })
 }
 
-// updateCore('60b8ef643305a30f00a6c130', 'Vinny's Core'');
+// updateCore('60b8ef643305a30f00a6c130', "Vinny's Core");
 
 // Delete Core
 const deleteCore = async (_id) => {
@@ -265,7 +265,123 @@ const deleteCore = async (_id) => {
 /////CREW STUFF/////
 ////////////////////
 
+// Crew Info
+
+let crew1 = {
+    "name": "Jake Schultz",
+    "agency": "NASA",
+    "image": "https://i.imgur.com/ooaayWf.png",
+    "wikipedia": "https://en.wikipedia.org/wiki/Douglas_G._Hurley",
+    "status": "active",
+    "id": "5ebf1b7323a9a60006e03a7b"
+}
+
+const createCrew = async (obj) => {
+    Crew.create(obj, (err, crew) => {
+        console.log(crew);
+    })};
+
+// createCrew(obj);
+
+// Fetch Crew
+const fetchCrew = (_id) => {
+    Crew.findOne({ _id }, (err, crew) => {
+        if (err) console.log(err);
+        console.log(crew);
+    })
+}
+
+// fetchCrew(`5e9e28a6f35918c0803b265c`);
+
+// Fetch all crew
+const fetchCrews = async () => {
+    Crew.find({}, (err, crews) => {
+        if (err) console.log(err);
+        console.log(crews);
+    });
+}
+
+// fetchCrews();
+
+// Update Crew
+const updateCrew = async (_id, name) => {
+    Crew.findOneAndUpdate({ _id }, { name }, { new: true }, (err, crew) => {
+        console.log(crew);
+    })
+}
+
+// updateCrew('60b8ef643305a30f00a6c130', "Vinny's Crew");
+
+// Delete Crew
+const deleteCrew = async (_id) => {
+    Crew.findOneAndRemove({ _id }, (err) => {
+        if (err) console.log(err);
+        console.log('Deleted!');
+    });
+}
+
+// deleteCrew(`60b8e2a655766506288a12ef`);
+
 ///////////////////////
 /////CAPSULE STUFF/////
 ///////////////////////
 
+// Capsule info
+
+let capsule1 = {
+    "name": "Jake's Capsule",
+    "reuse_count": 1,
+    "water_landings": 1,
+    "land_landings": 0,
+    "last_update": "Reentered after three weeks in orbit",
+    "serial": "C101",
+    "status": "retired",
+    "type": "Dragon 1.0",
+    "id": "5e9e2c5bf35918ed873b2664"
+}
+
+const createCapsule = async (obj) => {
+    Capsule.create(obj, (err, capsule) => {
+        console.log(capsule);
+    })};
+
+// createCapsule(obj);
+
+// Fetch Capsule
+const fetchCapsule = (_id) => {
+    Capsule.findOne({ _id }, (err, capsule) => {
+        if (err) console.log(err);
+        console.log(capsule);
+    })
+}
+
+// fetchCapsule(`5e9e28a6f35918c0803b265c`);
+
+// Fetch all Capsules
+const fetchCapsules = async () => {
+    Capsule.find({}, (err, capsules) => {
+        if (err) console.log(err);
+        console.log(capsules);
+    });
+}
+
+// fetchCapsules();
+
+// Update Capsule
+const updateCapsule = async (_id, name) => {
+    Capsule.findOneAndUpdate({ _id }, { name }, { new: true }, (err, capsule) => {
+        console.log(capsule);
+    })
+}
+
+// updateCapsule('60b8ef643305a30f00a6c130', "Vinny's Capsule");
+
+// Delete Capsule
+const deleteCapsule = async (_id) => {
+    Capsule.findOneAndRemove({ _id }, (err) => {
+        if (err) console.log(err);
+        console.log('Deleted!');
+    });
+}
+
+// deleteCapsule(`60b8e2a655766506288a12ef`);

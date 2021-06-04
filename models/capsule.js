@@ -1,17 +1,17 @@
 const mongoose = require('mongoose');
-const starlinkSchema = new mongoose.Schema({
+
+const capsuleSchema = new mongoose.Schema({
     name: String,
-    CCSDS_OMM_VERS: String,
-    CREATION_DATE: String,
-    OBJECT_NAME: String,
-    OBJECT_ID: String,
-    LAUNCH_DATE: String
+    reuse_count: Number,
+    water_landings: Number,
+    last_update: String,
+    id: String
 })
 
-starlinkSchema.methods.intro = function() {
-    console.log(`The starlink name is ${this.name}`);
+capsuleSchema.methods.intro = function() {
+    console.log(`The capsule name is ${this.name}`);
 }
 
-const Starlink = mongoose.model('Starlink', starlinkSchema);
+const Capsule = mongoose.model('Capsule', capsuleSchema);
 
-module.exports = Starlink;
+module.exports = Capsule;

@@ -1,12 +1,13 @@
 const mongoose = require('mongoose');
 
-// create a schema 
+// Create a schema
 
 const roadsterSchema = new mongoose.Schema({
     name: String,
     launch_date_utc: String,
     launch_date_unix: Number,
     launch_mass_kg: Number,
+    launch_mass_lbs: Number,
     norad_id: Number,
     epoch_jd: Number,
     orbit_type: String,
@@ -24,6 +25,7 @@ const roadsterSchema = new mongoose.Schema({
     earth_distance_mi: Number,
     mars_distance_km: Number,
     mars_distance_mi: Number,
+    flickr_images: String,
     wikipedia: String,
     video: String,
     details: String
@@ -33,6 +35,6 @@ roadsterSchema.methods.intro = function() {
     console.log(`The roadster name is ${this.name}`);
 }
 
-const Roadster = mongoose.model("Roadster", roadsterSchema);
+const Roadster = mongoose.model('Roadster', roadsterSchema);
 
 module.exports = Roadster;
